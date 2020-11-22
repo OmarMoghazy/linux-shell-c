@@ -50,7 +50,7 @@ void parse_input(char* input, char** args) {
 
 void child_terminate_handler() {
     //printf("\nChild process terminated\n");
-    write(1,"Child process was terminated\n", sizeof(char) * 29);
+    write(STDOUT_FILENO,"Child process was terminated\n", sizeof(char) * 29);
     FILE* f = fopen("log.txt", "a");
     //fprintf(f,"Child process was terminated\n");
     fwrite("Child process was terminated\n", sizeof(char), 29, f);
